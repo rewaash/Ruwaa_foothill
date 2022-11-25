@@ -1,0 +1,33 @@
+//link of Q3 : https://leetcode.com/problems/add-digits/
+
+public class Solution {
+    public int AddDigits(int num) {
+       while(num>9){
+           
+        int tmp = num;
+            
+        int []digit = new int [100];
+        int i=0;
+        int ten =10;
+        while(tmp!=0){
+            digit[i] =tmp%ten;
+            i++;
+            
+            tmp = tmp/10;
+            
+            
+            
+        }
+    
+      num =0;
+        for(int j=0;j<i;j++)
+            num=num+digit[j];
+         
+           
+           
+           
+       }
+        return num;
+     
+    }
+}
