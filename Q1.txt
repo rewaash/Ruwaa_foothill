@@ -1,0 +1,72 @@
+//link of Q1: https://leetcode.com/problems/reverse-integer/
+public class Solution {
+    public int Reverse(int x) {
+        long z= x;
+       int flag=0;
+        if(x<0){ flag=1;
+               x=x*(-1);
+               }
+        
+        int dig=0;
+      int c=x;
+        while(c>0){
+            c=c/10;
+        dig++;}
+        
+        if(dig >=10)
+        {
+             c=x%10; 
+            if(c>2)
+                return 0;
+            
+            
+              c=x%10; 
+            if(c>2)
+                return 0;
+        }
+      
+        
+        long []arr = new long[dig];
+        for(int i=0;i<dig;i++){
+            
+            arr[i]= x%10;
+            x=x/10;
+            
+            
+        }
+        
+        int v= dig-1;
+        int t=10;
+        
+        for(int j=0;j<dig;j++)
+        {
+            
+            for(int i=0;i<v;i++)
+            arr[j]= arr[j]*10;
+            
+            v--;
+            
+        }
+        
+        
+        
+        long sum=0;
+        for(int d=0;d<dig;d++){
+            
+            sum=sum+arr[d];
+          if(sum>2147483647)
+              return 0;
+        }
+        
+        
+        if(flag==1)
+            sum=sum*(-1);
+        
+        int r= (int)sum;
+        return r;
+        
+        
+        
+        
+    }
+}
