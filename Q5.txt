@@ -1,0 +1,33 @@
+//https://leetcode.com/problems/median-of-two-sorted-arrays/
+public class Solution {
+    public double FindMedianSortedArrays(int[] nums1, int[] nums2) {
+        
+          int i = 0, j = 0, k = 0;
+        int size = nums1.Length + nums2.Length;
+        int med=(size-1)/2;
+      double median;
+        int []mergesarray= new int [size];
+        while (i < nums1.Length && j < nums2.Length) {
+    if (nums1[i] < nums2[j])
+      mergesarray[k++] = nums1[i++];
+    else
+      mergesarray[k++] = nums2[j++];
+  }
+  while (i < nums1.Length)
+    mergesarray[k++] = nums1[i++];
+ 
+  while (j < nums2.Length)
+    mergesarray[k++] = nums2[j++];
+        
+        if((size%2)==1)
+          median =  mergesarray[med];
+        
+        else {
+            
+             median =  (mergesarray[med]+ mergesarray[med+1])/2.0;
+            
+        }
+      return median;  
+        
+    }
+}
